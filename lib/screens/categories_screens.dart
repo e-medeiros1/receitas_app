@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:receitas_app/components/category_itens.dart';
+import 'package:receitas_app/components/category_item.dart';
 import 'package:receitas_app/data/dummy_data.dart';
 
 class CategoriesScreens extends StatelessWidget {
@@ -12,7 +12,7 @@ class CategoriesScreens extends StatelessWidget {
         title: const Center(
             child: Text(
           'Let\'s cook?',
-          style: TextStyle(fontSize: 25),
+          style: TextStyle(fontSize: 24),
         )),
       ),
       body: GridView(
