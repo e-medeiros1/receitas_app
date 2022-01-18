@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:receitas_app/models/category.dart';
-import 'package:receitas_app/screens/categories_meals_screen.dart';
 
 class CategoryItens extends StatelessWidget {
   const CategoryItens({Key? key, required this.category}) : super(key: key);
@@ -8,12 +7,9 @@ class CategoryItens extends StatelessWidget {
   final Category category;
 
   void _selectCategory(BuildContext context) {
-    Navigator.of(context).push(
-      MaterialPageRoute(
-        builder: (_) {
-          return const CategoriesMealsScreen();
-        },
-      ),
+    Navigator.of(context).pushNamed(
+      '/category-meals',
+      arguments: category,
     );
   }
 
