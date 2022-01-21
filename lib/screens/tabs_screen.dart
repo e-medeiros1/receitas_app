@@ -57,7 +57,7 @@ class _TabsScreenState extends State<TabsScreen> {
           ),
           BottomNavigationBarItem(
             // backgroundColor: Colors.white70,
-            icon: Icon(Icons.star),
+            icon: Icon(Icons.favorite),
             label: 'Favorites',
           ),
         ],
