@@ -3,23 +3,37 @@ import 'package:receitas_app/components/main_drawer.dart';
 import 'package:receitas_app/models/settings.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  const SettingsScreen(
+      {Key? key, required this.onChangedSettings, required this.settings})
+      : super(key: key);
+
+  final Function(Settings) onChangedSettings;
+  final Settings settings;
 
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    settings = widget.settings;
+  }
+
   Widget _createWidget(
     String title,
     String subtitle,
     bool value,
-    Function onChanged,
+    Function(bool) onChanged,
   ) {
     return SwitchListTile.adaptive(
       title: Text(title),
       value: value,
-      onChanged: (_) => onChanged,
+      onChanged: (value) {
+        onChanged(value);
+        widget.onChangedSettings(settings!);
+      },
       subtitle: Text(subtitle),
     );
   }
