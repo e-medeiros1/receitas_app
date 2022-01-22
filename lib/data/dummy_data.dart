@@ -4,61 +4,60 @@ import 'package:flutter/material.dart';
 import '../models/category.dart';
 import '../models/meal.dart';
 
-const DUMMY_CATEGORIES = [
+var DUMMY_CATEGORIES = [
   Category(
     id: 'c1',
     title: 'Italian',
-    color: Colors.purple,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c2',
     title: 'Quick & easy',
-    color: Colors.red,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c3',
     title: 'Hamburgers',
-    color: Colors.orange,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c4',
     title: 'German',
-    color: Colors.amber,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c5',
-    title: 'Fit & Healtful',
-    color: Colors.indigo,
+    title: 'Fit & Healthful',
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c6',
     title: 'Exotic',
-    color: Colors.green,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c7',
     title: 'Breakfeast',
-    color: Colors.lightBlue,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c8',
-    title: 'Asian',
-    color: Colors.lightGreen,
+    title: 'Indian',
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c9',
     title: 'French',
-    color: Colors.pink,
+    color: Colors.cyan.shade50,
   ),
   Category(
     id: 'c10',
     title: 'Summer',
-    color: Colors.teal,
+    color: Colors.cyan.shade50,
   ),
 ];
 
 var DUMMY_MEALS = [
-
   Meal(
     id: 'm1',
     categories: ['c1', 'c2'],
@@ -69,10 +68,10 @@ var DUMMY_MEALS = [
         'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg/800px-Spaghetti_Bolognese_mit_Parmesan_oder_Grana_Padano.jpg',
     duration: 20,
     ingredients: [
-      '4 Tomatoes',
-      '1 Tablespoon of Olive Oil',
-      '1 Onion',
-      '250g Spaghetti',
+      '4 - Tomatoes',
+      '1 - Tablespoon of Olive Oil',
+      '1 - Onion',
+      '250g - Spaghetti',
       'Spices',
       'Cheese (optional)'
     ],
@@ -100,10 +99,10 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
     duration: 10,
     ingredients: [
-      '1 Slice White Bread',
-      '1 Slice Ham',
-      '1 Slice Pineapple',
-      '1-2 Slices of Cheese',
+      '1 - Slice White Bread',
+      '1 - Slice Ham',
+      '1 - Slice Pineapple',
+      '1-2 - Slices of Cheese',
       'Butter'
     ],
     steps: [
@@ -126,12 +125,12 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
     duration: 45,
     ingredients: [
-      '300g Cattle Hack',
-      '1 Tomato',
-      '1 Cucumber',
-      '1 Onion',
+      '300g - Cattle Hack',
+      '1 - Tomato',
+      '1 - Cucumber',
+      '1 - Onion',
       'Ketchup',
-      '2 Burger Buns'
+      '2 - Burger Buns'
     ],
     steps: [
       'Form 2 patties',
@@ -155,12 +154,12 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
     duration: 60,
     ingredients: [
-      '8 Veal Cutlets',
-      '4 Eggs',
-      '200g Bread Crumbs',
-      '100g Flour',
-      '300ml Butter',
-      '100g Vegetable Oil',
+      '8 - Veal Cutlets',
+      '4 - Eggs',
+      '200g - Bread Crumbs',
+      '100g - Flour',
+      '300ml - Butter',
+      '100g - Vegetable Oil',
       'Salt',
       'Lemon Slices'
     ],
@@ -192,7 +191,7 @@ var DUMMY_MEALS = [
       'Lamb\'s Lettuce',
       'Parsley',
       'Fennel',
-      '200g Smoked Salmon',
+      '200g - Smoked Salmon',
       'Mustard',
       'Balsamic Vinegar',
       'Olive Oil',
@@ -220,11 +219,11 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
     duration: 240,
     ingredients: [
-      '4 Sheets of Gelatine',
-      '150ml Orange Juice',
-      '80g Sugar',
-      '300g Yoghurt',
-      '200g Cream',
+      '4 - Sheets of Gelatine',
+      '150ml - Orange Juice',
+      '80g - Sugar',
+      '300g - Yoghurt',
+      '200g - Cream',
       'Orange Peel',
     ],
     steps: [
@@ -253,13 +252,13 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
     duration: 20,
     ingredients: [
-      '1 1/2 Cups all-purpose Flour',
-      '3 1/2 Teaspoons Baking Powder',
-      '1 Teaspoon Salt',
-      '1 Tablespoon White Sugar',
-      '1 1/4 cups Milk',
-      '1 Egg',
-      '3 Tablespoons Butter, melted',
+      '1 & 1/2 - Cups all-purpose Flour',
+      '3 & 1/2 - Teaspoons Baking Powder',
+      '1 - Teaspoon Salt',
+      '1 - Tablespoon White Sugar',
+      '1 & 1/4 - cups Milk',
+      '1 - Egg',
+      '3 - Tablespoons Butter, melted',
     ],
     steps: [
       'In a large bowl, sift together the flour, baking powder, salt and sugar.',
@@ -282,13 +281,13 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
     duration: 35,
     ingredients: [
-      '4 Chicken Breasts',
-      '1 Onion',
-      '2 Cloves of Garlic',
-      '1 Piece of Ginger',
-      '4 Tablespoons Almonds',
-      '1 Teaspoon Cayenne Pepper',
-      '500ml Coconut Milk',
+      '4 - Chicken Breasts',
+      '1 - Onion',
+      '2 - Cloves of Garlic',
+      '1 - Piece of Ginger',
+      '4 - Tablespoons Almonds',
+      '1 - Teaspoon Cayenne Pepper',
+      '500ml - Coconut Milk',
     ],
     steps: [
       'Slice and fry the chicken breast',
@@ -313,18 +312,18 @@ var DUMMY_MEALS = [
         'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
     duration: 45,
     ingredients: [
-      '1 Teaspoon melted Butter',
-      '2 Tablespoons white Sugar',
-      '2 Ounces 70% dark Chocolate, broken into pieces',
-      '1 Tablespoon Butter',
-      '1 Tablespoon all-purpose Flour',
-      '4 1/3 tablespoons cold Milk',
-      '1 Pinch Salt',
-      '1 Pinch Cayenne Pepper',
-      '1 Large Egg Yolk',
-      '2 Large Egg Whites',
-      '1 Pinch Cream of Tartar',
-      '1 Tablespoon white Sugar',
+      '1 - Teaspoon melted Butter',
+      '2 - Tablespoons white Sugar',
+      '2 - Ounces 70% dark Chocolate, broken into pieces',
+      '1 - Tablespoon Butter',
+      '1 - Tablespoon all-purpose Flour',
+      '4 - 1/3 tablespoons cold Milk',
+      '1 - Pinch Salt',
+      '1 - Pinch Cayenne Pepper',
+      '1 - Large Egg Yolk',
+      '2 - Large Egg Whites',
+      '1 - Pinch Cream of Tartar',
+      '1 - Tablespoon white Sugar',
     ],
     steps: [
       'Preheat oven to 190°C. Line a rimmed baking sheet with parchment paper.',
@@ -361,8 +360,8 @@ var DUMMY_MEALS = [
     duration: 30,
     ingredients: [
       'White and Green Asparagus',
-      '30g Pine Nuts',
-      '300g Cherry Tomatoes',
+      '30g - Pine Nuts',
+      '300g - Cherry Tomatoes',
       'Salad',
       'Salt, Pepper and Olive Oil'
     ],
