@@ -3,14 +3,14 @@ import 'package:receitas_app/components/meals_item.dart';
 import 'package:receitas_app/models/meal.dart';
 
 class FavoriteScreen extends StatelessWidget {
-  const FavoriteScreen({Key? key,  required this.favoriteMeal})
-      : super(key: key);
+ 
 
-   final List<Meal> favoriteMeal;
+  final List<Meal> favoriteM;
+  const FavoriteScreen(this.favoriteM);
 
   @override
   Widget build(BuildContext context) {
-    if (favoriteMeal.isEmpty) {
+    if (favoriteM.isEmpty) {
       return Center(
           child: Text(
         'You have no favorite selections',
@@ -18,10 +18,10 @@ class FavoriteScreen extends StatelessWidget {
       ));
     } else {
       return ListView.builder(
-        itemCount: favoriteMeal.length,
+        itemCount: favoriteM.length,
         itemBuilder: (ctx, index) {
           return MealItem(
-            meal: favoriteMeal[index],
+            meal: favoriteM[index],
           );
         },
       );

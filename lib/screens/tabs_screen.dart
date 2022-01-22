@@ -8,10 +8,7 @@ import 'package:receitas_app/screens/favorite_screen.dart';
 class TabsScreen extends StatefulWidget {
   final List<Meal> favoriteMeals;
 
-  const TabsScreen({
-    Key? key,
-    required this.favoriteMeals,
-  }) : super(key: key);
+  const TabsScreen(this.favoriteMeals);
 
   @override
   State<TabsScreen> createState() => _TabsScreenState();
@@ -20,20 +17,44 @@ class TabsScreen extends StatefulWidget {
 class _TabsScreenState extends State<TabsScreen> {
   int _selectedScreenIndex = 0;
 
-  late List<Widget> _screens;
-  late List<String> _titles;
+  // List<Widget>? _screens = [];
+  // List<String>? _titles;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+
+  //   _screens = [
+  //     const CategoriesScreens(),
+  //     FavoriteScreen(
+  //       favoriteMeals: _favoriteMeals,
+  //     ),
+  //   ];
+  //   _titles = [
+  //     'Categories list',
+  //     'My favorites',
+  //   ];
+  // }
+
+  // _selectScreen(int index) {
+  //   setState(() {
+  //     _selectedScreenIndex = index;
+  //   });
+  // }
+
+  final List<String> _titles = [
+    'Categories list',
+    'My favorites',
+  ];
+
+  List<Widget>? _screens;
 
   @override
   void initState() {
     super.initState();
-
     _screens = [
       const CategoriesScreens(),
-      const FavoriteScreen(favoriteMeal: []),
-    ];
-    _titles = [
-      'Categories list',
-      'My favorites',
+      FavoriteScreen(widget.favoriteMeals),
     ];
   }
 
@@ -47,21 +68,22 @@ class _TabsScreenState extends State<TabsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.cyan[50],
         title: Center(
           child: Text(
             _titles[_selectedScreenIndex],
-            style: const TextStyle(fontSize: 24),
+            style: const TextStyle(fontSize: 24, color: Colors.black),
           ),
         ),
       ),
       drawer: const MainDrawer(),
-      body: _screens[_selectedScreenIndex],
+      body: _screens![_selectedScreenIndex],
       bottomNavigationBar: BottomNavigationBar(
-        showUnselectedLabels: false,
-        backgroundColor: Colors.white70,
+        // showUnselectedLabels: false,
+        backgroundColor: Colors.cyan.shade50,
         enableFeedback: true,
-        unselectedItemColor: Colors.black54,
-        selectedItemColor: Theme.of(context).primaryColor,
+        unselectedItemColor: Colors.cyan.shade900,
+        selectedItemColor: Colors.cyanAccent.shade700,
         currentIndex: _selectedScreenIndex,
         onTap: _selectScreen,
         items: const [
