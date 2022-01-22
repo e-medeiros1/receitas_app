@@ -9,11 +9,11 @@ import 'package:receitas_app/screens/tabs_screen.dart';
 import 'package:receitas_app/utils/app_routes.dart';
 
 void main(List<String> args) {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
-  const MyApp({Key? key}) : super(key: key);
+  
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -21,8 +21,8 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Settings settings = Settings();
-  final List<Meal> _favoriteMeals = [];
   List<Meal> _availableMeals = DUMMY_MEALS;
+  final List<Meal> favoriteMeals = [];
 
   void _filterMeals(Settings settings) {
     setState(() {
@@ -43,14 +43,14 @@ class _MyAppState extends State<MyApp> {
 
   void _toggleFavorite(Meal meal) {
     setState(() {
-      _favoriteMeals.contains(meal)
-          ? _favoriteMeals.remove(meal)
-          : _favoriteMeals.add(meal);
+      favoriteMeals.contains(meal)
+          ? favoriteMeals.remove(meal)
+          : favoriteMeals.add(meal);
     });
   }
 
   bool _isFavorited(Meal meal) {
-    return _favoriteMeals.contains(meal);
+    return favoriteMeals.contains(meal);
   }
 
   @override
@@ -59,9 +59,9 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Let\'s cook?',
       theme: ThemeData(
-        primarySwatch: Colors.pink,
+        primarySwatch: Colors.cyan,
         fontFamily: 'Raleway',
-        canvasColor: Colors.pink[50],
+        canvasColor: Colors.cyanAccent.shade400,
         textTheme: ThemeData.light().textTheme.copyWith(
                 headline6: const TextStyle(
               fontSize: 22,
@@ -69,9 +69,11 @@ class _MyAppState extends State<MyApp> {
             )),
       ),
       routes: {
-        AppRoutes.HOME: (ctx) => TabsScreen(favoriteMeals: _favoriteMeals),
-        AppRoutes.CATEGORIE_MEALS: (ctx) => CategoriesMealsScreen(meal: _availableMeals),
-        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(onToggleFavorite: _toggleFavorite, isFavorited: _isFavorited),
+        AppRoutes.HOME: (ctx) => TabsScreen(favoriteMeals),
+        AppRoutes.CATEGORIE_MEALS: (ctx) =>
+            CategoriesMealsScreen(meal: _availableMeals),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(
+            onToggleFavorite: _toggleFavorite, isFavorited: _isFavorited),
         AppRoutes.SETTINGS: (ctx) => SettingsScreen(
               onChangedSettings: _filterMeals,
               settings: settings,
