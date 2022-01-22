@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter/material.dart';
 import 'package:receitas_app/models/meal.dart';
 import 'package:receitas_app/utils/app_routes.dart';
@@ -19,6 +19,7 @@ class MealItem extends StatelessWidget {
     return InkWell(
       onTap: () => _selectMeal(context),
       child: Card(
+        color: Colors.cyan.shade50,
         elevation: 4,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(15),
@@ -69,21 +70,30 @@ class MealItem extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      const Icon(Icons.schedule),
+                      Icon(
+                        Icons.schedule,
+                        color: Colors.cyan.shade900,
+                      ),
                       const SizedBox(width: 6),
                       Text('${meal.duration.toString()} min'),
                     ],
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.work),
+                      Icon(
+                        Icons.work,
+                        color: Colors.cyan.shade900,
+                      ),
                       const SizedBox(width: 6),
                       Text(meal.complexityText),
                     ],
                   ),
                   Row(
                     children: [
-                      const Icon(Icons.attach_money),
+                      Icon(
+                        Icons.attach_money,
+                        color: Colors.cyan.shade900,
+                      ),
                       const SizedBox(width: 6),
                       Text(meal.costText),
                     ],

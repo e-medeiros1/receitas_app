@@ -6,10 +6,11 @@ class MainDrawer extends StatelessWidget {
 
   Widget _createItem(IconData icon, String label, Function() onTap) {
     return ListTile(
+      selectedTileColor: Colors.blue,
       leading: Icon(
         icon,
         size: 26,
-        color: Colors.black,
+        color: Colors.white,
       ),
       title: Text(
         label,
@@ -17,7 +18,7 @@ class MainDrawer extends StatelessWidget {
             fontFamily: 'RobotoCondensed',
             fontSize: 24,
             fontWeight: FontWeight.bold,
-            color: Colors.black),
+            color: Colors.white),
       ),
       onTap: onTap,
     );
@@ -26,11 +27,16 @@ class MainDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.pink[100],
+      backgroundColor: Colors.lightBlue.shade600.withOpacity(0.1),
       child: Column(
         children: [
           Container(
-            color: Colors.pink,
+            decoration: const BoxDecoration(
+                gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [Colors.indigo, Colors.cyan, Colors.blue],
+            )),
             height: 120,
             width: double.infinity,
             padding: const EdgeInsets.all(20),

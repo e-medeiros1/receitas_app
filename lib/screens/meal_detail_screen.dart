@@ -26,7 +26,8 @@ class MealDetailScreen extends StatelessWidget {
       width: 380,
       height: 225,
       decoration: BoxDecoration(
-        color: Colors.pink[100],
+        gradient: const LinearGradient(
+            colors: [Colors.blue, Colors.teal, Colors.cyan]),
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(10),
       ),
@@ -40,8 +41,10 @@ class MealDetailScreen extends StatelessWidget {
     final meal = ModalRoute.of(context)?.settings.arguments as Meal;
 
     return Scaffold(
+      backgroundColor: Colors.cyanAccent.shade400,
       appBar: AppBar(
-        title: Text(meal.title),
+        backgroundColor: Colors.cyan[50],
+        title: Center(child: Text(meal.title)),
       ),
       body: SingleChildScrollView(
         child: Column(
@@ -60,7 +63,7 @@ class MealDetailScreen extends StatelessWidget {
                 itemCount: meal.ingredients.length,
                 itemBuilder: (ctx, index) {
                   return Card(
-                    elevation: 3,
+                    elevation: 4,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(
                           vertical: 5, horizontal: 10),
@@ -84,11 +87,20 @@ class MealDetailScreen extends StatelessWidget {
                     children: [
                       ListTile(
                         leading: CircleAvatar(
-                          child: Text('${index + 1}'),
+                          backgroundColor: Colors.white,
+                          child: Text(
+                            '${index + 1}',
+                            style: const TextStyle(
+                              color: Colors.black,
+                              fontSize: 20,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
                         ),
                         title: Text(
                           meal.steps[index],
-                          style: const TextStyle(fontSize: 19),
+                          style: const TextStyle(
+                              fontSize: 19, color: Colors.white),
                         ),
                       ),
                       const Divider(),
@@ -101,6 +113,8 @@ class MealDetailScreen extends StatelessWidget {
         ),
       ),
       floatingActionButton: FloatingActionButton(
+        backgroundColor: Colors.cyan[50],
+        foregroundColor: Colors.cyanAccent[700],
         child: Icon(isFavorited(meal) ? Icons.favorite : Icons.favorite_border),
         onPressed: () {
           onToggleFavorite(meal);
