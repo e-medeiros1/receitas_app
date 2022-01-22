@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:receitas_app/data/dummy_data.dart';
+import 'package:receitas_app/models/meal.dart';
+import 'package:receitas_app/models/settings.dart';
 import 'package:receitas_app/screens/categories_meals_screen.dart';
 import 'package:receitas_app/screens/meal_detail_screen.dart';
 import 'package:receitas_app/screens/settings_screen.dart';
@@ -17,11 +20,44 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
+  Settings settings = Settings();
+  final List<Meal> _favoriteMeals = [];
+  List<Meal> _availableMeals = DUMMY_MEALS;
+
+  void _filterMeals(Settings settings) {
+    setState(() {
+      this.settings = settings;
+      _availableMeals = DUMMY_MEALS.where((meal) {
+        final filterGlutten = settings.isGlutenFree && !meal.isGlutenFree;
+        final filterLactose = settings.isLactoseFree && !meal.isLactoseFree;
+        final filterVegan = settings.isVegan && !meal.isVegan;
+        final filterVegetarian = settings.isVegetarian && !meal.isVegetarian;
+
+        return !filterGlutten &&
+            !filterLactose &&
+            !filterVegan &&
+            !filterVegetarian;
+      }).toList();
+    });
+  }
+
+  void _toggleFavorite(Meal meal) {
+    setState(() {
+      _favoriteMeals.contains(meal)
+          ? _favoriteMeals.remove(meal)
+          : _favoriteMeals.add(meal);
+    });
+  }
+
+  bool _isFavorited(Meal meal) {
+    return _favoriteMeals.contains(meal);
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Vamos Cozinhar?',
+      title: 'Let\'s cook?',
       theme: ThemeData(
         primarySwatch: Colors.pink,
         fontFamily: 'Raleway',
@@ -33,10 +69,13 @@ class _MyAppState extends State<MyApp> {
             )),
       ),
       routes: {
-        AppRoutes.HOME: (ctx) => const TabsScreen(),
-        AppRoutes.CATEGORIE_MEALS: (ctx) => const CategoriesMealsScreen(),
-        AppRoutes.MEAL_DETAIL: (ctx) => const MealDetailScreen(),
-        AppRoutes.SETTINGS: (ctx) => const SettingsScreen(),
+        AppRoutes.HOME: (ctx) => TabsScreen(favoriteMeals: _favoriteMeals),
+        AppRoutes.CATEGORIE_MEALS: (ctx) => CategoriesMealsScreen(meal: _availableMeals),
+        AppRoutes.MEAL_DETAIL: (ctx) => MealDetailScreen(onToggleFavorite: _toggleFavorite, isFavorited: _isFavorited),
+        AppRoutes.SETTINGS: (ctx) => SettingsScreen(
+              onChangedSettings: _filterMeals,
+              settings: settings,
+            ),
       },
     );
   }
